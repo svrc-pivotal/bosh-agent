@@ -380,6 +380,7 @@ post-up route add -net {{ .Destination }} netmask {{ .Netmask }} gw {{ .Gateway 
 auto {{ .Name }}
 iface {{ .Name }} inet{{ .Version6 }} static
     address {{ .Address }}{{ if not .IsVersion6 }}
+    mtu 1400
     network {{ .Network }}{{ end }}
     netmask {{ .NetmaskOrLen }}{{ if .IsDefaultForGateway }}{{ if not .IsVersion6 }}
     broadcast {{ .Broadcast }}{{ end }}
